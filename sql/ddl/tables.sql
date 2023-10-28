@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS appointments;
+DROP TABLE IF EXISTS authentication;
 DROP TABLE IF EXISTS billing; 
 DROP TABLE IF EXISTS calendar; 
 DROP TABLE IF EXISTS customers; 
@@ -76,4 +77,10 @@ CREATE TABLE appointments (
 	event_id SERIAL PRIMARY KEY,
 	user_id INT REFERENCES users (user_id),
 	host_id INT	REFERENCES hosts (host_id)
+);
+
+CREATE TABLE authentication (
+	login_id SERIAL PRIMARY KEY,
+	username VARCHAR,
+	userpass VARCHAR
 );

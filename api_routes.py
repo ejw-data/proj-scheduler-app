@@ -12,6 +12,8 @@ api = Blueprint('api', __name__, url_prefix='/api')
 
 # ---------------------------------------------------------- #
 # Login routes
+
+
 @api.route('/login')
 def login():
     '''
@@ -38,22 +40,26 @@ def submit_login():
     # db.create_all(bind=['login'])
 
     add_credentials = Authentication(
-        first_name= "Erin33",
-        last_name = "Wills33",
-        username = username,
-        password = password
+        first_name="Erin33",
+        last_name="Wills33",
+        username=username,
+        password=password
         )
 
     db.session.add(add_credentials)
     db.session.commit()
 
-    return redirect(request.referrer)  
+    return redirect(request.referrer) 
 
 # ---------------------------------------------------------- #
 # Unit page routes
 
+
 @api.route('/submission')
 def submission():
+    '''
+    Submission api
+    '''
     data = submission_request()
     return json.dumps(data)
 
