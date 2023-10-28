@@ -1,6 +1,6 @@
+from config import username, password, hostname, database
+
 # Databases
 path = {
-    "gradebook":"sqlite:///gradebook.db",
-    "login":"sqlite:///login-flask.db",
-    "utility":"sqlite:///utility.db"
+    "scheduler": f"postgresql+psycopg2://{username}:{password}@{hostname}/{database}"
     }
