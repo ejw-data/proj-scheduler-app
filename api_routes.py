@@ -17,13 +17,13 @@ api = Blueprint('api', __name__, url_prefix='/api')
 @api.route('/login')
 def login():
     '''
-    Don't remember this purpose
+    Used in modal js
     '''
     # db.create_all(bind=['login'])
 
     name = Authentication.query.order_by(Authentication.login_id.desc()).first()
     return json.dumps({'username': name.username,
-                       'password': name.password})
+                       'password': name.password_hash})
 
 
 @api.route('/modalsubmit', methods=['POST'])
