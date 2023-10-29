@@ -7,7 +7,8 @@ def create_app():
     Initiate Flask
     '''
     app = Flask(__name__)
-   
+
+
     ENV = 'dev'
 
     if ENV == 'dev':
