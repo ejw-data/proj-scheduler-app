@@ -14,8 +14,8 @@ app.app_context().push()
 db.init_app(app)
 
 # generate database if it doesn't exist
-if ~(database_exists(path["login"])):
-    db.create_all(bind=['login'])
+if ~(database_exists(path["scheduler"])):
+    db.create_all(bind_key=['scheduler'])
 
 
 if __name__ == '__main__':

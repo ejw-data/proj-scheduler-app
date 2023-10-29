@@ -12,10 +12,9 @@ def create_app():
 
     if ENV == 'dev':
         app.debug = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = path["gradebook"]
+        app.config['SQLALCHEMY_DATABASE_URI'] = path["scheduler"]
         app.config['SQLALCHEMY_BINDS'] = {
-            'login':    path["login"],
-            'utility':  path["utility"]
+            'scheduler':    path["scheduler"]
         }
     elif ENV == 'prod':
         app.debug = False
