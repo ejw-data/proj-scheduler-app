@@ -1,5 +1,6 @@
 from flask import Flask
 from db_paths import path
+from config import secret_key
 
 
 def create_app():
@@ -7,15 +8,15 @@ def create_app():
     Initiate Flask
     '''
     app = Flask(__name__)
-   
+    app.config['SECRET_KEY'] = secret_key
+
     ENV = 'dev'
 
     if ENV == 'dev':
         app.debug = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = path["gradebook"]
+        app.config['SQLALCHEMY_DATABASE_URI'] = path["scheduler"]
         app.config['SQLALCHEMY_BINDS'] = {
-            'login':    path["login"],
-            'utility':  path["utility"]
+            'scheduler':    path["scheduler"]
         }
     elif ENV == 'prod':
         app.debug = False
